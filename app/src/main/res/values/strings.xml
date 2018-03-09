@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NeoNews</string>
+    <string name="quit">Quit</string>
+    <string name="logout">Logout</string>
+    <string name="connection">Connection</string>
+    <string name="login">login</string>
+    <string name="password">Password</string>
+</resources>
