@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
@@ -34,18 +36,9 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
     @Override
     public void onBindViewHolder(SingleItemRowHolder holder, int i) {
-
         SingleItemModel singleItem = itemsList.get(i);
-
         holder.tvTitle.setText(singleItem.getName());
-
-
-       /* Glide.with(mContext)
-                .load(feedItem.getImageURL())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .centerCrop()
-                .error(R.drawable.bg)
-                .into(feedListRowHolder.thumbView);*/
+        Picasso.get().load(singleItem.getImageUrl()).fit().into(holder.itemImage);
     }
 
     @Override
@@ -54,32 +47,22 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     }
 
     public class SingleItemRowHolder extends RecyclerView.ViewHolder {
-
         protected TextView tvTitle;
-
         protected ImageView itemImage;
-
 
         public SingleItemRowHolder(View view) {
             super(view);
 
-            this.tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-            this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
+            this.tvTitle = view.findViewById(R.id.tvTitle);
+            this.itemImage = view.findViewById(R.id.itemImage);
 
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
-
                 }
             });
-
-
         }
-
     }
-
 }

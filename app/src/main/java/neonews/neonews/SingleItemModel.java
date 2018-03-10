@@ -3,7 +3,7 @@ package neonews.neonews;
 public class SingleItemModel {
 
     private String name;
-    private String url;
+    private String imageUrl;
     private String description;
 
     public SingleItemModel() {
@@ -11,16 +11,15 @@ public class SingleItemModel {
 
     public SingleItemModel(String name, String url) {
         this.name = name;
-        this.url = url;
+        this.imageUrl = url;
     }
 
-
-    public String getUrl() {
-        return url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
