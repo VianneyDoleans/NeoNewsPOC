@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="font_subject">#2cffffff</color>
+    <color name="bt_reco_color">#004a7f</color>
 </resources>

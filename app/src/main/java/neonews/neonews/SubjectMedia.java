@@ -1,12 +1,12 @@
 package neonews.neonews;
 
-import android.graphics.Bitmap;
+import java.io.Serializable;
 
 /**
  * Created by Guillaume on 12/03/2018.
  */
 
-public class SubjectMedia {
+public class SubjectMedia implements Serializable {
     public enum MediaType {
         NEWSPAPER,
         VIDEO,

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
                 "https://upload.wikimedia.org/wikipedia/fr/thumb/3/33/Logo_20_Minutes.svg/938px-Logo_20_Minutes.svg.png",
                 "20 Minutes",
                 SubjectMedia.MediaType.NEWSPAPER,
-                "www.google.fr"));
+                "https://www.20minutes.fr/culture/2236523-20180313-realite-virtuelle-visite-achete-appartement-depuis-canap"));
         mediaFirst.add(new SubjectMedia(
                 "https://upload.wikimedia.org/wikipedia/fr/thumb/d/d1/Ouest-France_logo.svg/1280px-Ouest-France_logo.svg.png",
                 "Ouest France",
