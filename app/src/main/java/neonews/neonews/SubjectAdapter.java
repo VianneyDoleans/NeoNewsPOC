@@ -82,7 +82,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Carousel
                     customView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            AlertChooseMedia alert = new AlertChooseMedia(_Ctx, subject);
+                            alert.show();
                         }
                     });
                     return customView;
