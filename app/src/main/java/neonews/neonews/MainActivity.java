@@ -1,9 +1,12 @@
 package neonews.neonews;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
         _SubjectList.add(new Subject("http://i.imgur.com/DvpvklR.png", "Bonjour", "", mediaFirst));
         _SubjectList.add(new Subject("test", "Une actu", "", null));
         _SubjectList.add(new Subject("test", "Deux actus", "", null));
+
+        FloatingActionButton floatingActionButton = findViewById(R.id.actionButtonFilter);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MapsActivity.class));
+            }
+        });
 
         final RecyclerView mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager( new LinearLayoutManager(this));

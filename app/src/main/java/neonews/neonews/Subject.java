@@ -10,6 +10,8 @@ public class Subject {
     String imageUrl;
     String title;
     String description;
+    int x;
+    int y;
     List<SubjectMedia> listMedia;
 
     public Subject(String imageUrl, String title, String description, List<SubjectMedia> listMedia) {
