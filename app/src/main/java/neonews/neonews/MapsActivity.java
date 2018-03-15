@@ -48,7 +48,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         for (Subject sub : list) {
             LatLng pos = new LatLng(sub.getX(), sub.getY());
-            BitmapDescriptor icon = BitmapDescriptorFactory.fromFile(sub.getImageUrl());
+            BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.newspaper);
             mMap.addMarker(new MarkerOptions().position(pos).title(sub.getTitle()).icon(icon));
         }
         LatLng lille = new LatLng(50.633333, 3.066667);
