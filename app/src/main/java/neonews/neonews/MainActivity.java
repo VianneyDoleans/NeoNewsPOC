@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Subject> _SubjectList = new ArrayList<>();
+    public ArrayList<Subject> _SubjectList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +46,17 @@ public class MainActivity extends AppCompatActivity {
                 "La voix du nord",
                 SubjectMedia.MediaType.NEWSPAPER,
                 "www.google.fr"));
-        _SubjectList.add(new Subject("http://i.imgur.com/DvpvklR.png", "Bonjour", "", mediaFirst));
-        _SubjectList.add(new Subject("test", "Une actu", "", null));
-        _SubjectList.add(new Subject("test", "Deux actus", "", null));
+        _SubjectList.add(new Subject("http://i.imgur.com/DvpvklR.png", "Bonjour", "", mediaFirst, 50.62783439592958, 3.041548984008841));
+        _SubjectList.add(new Subject("test", "Une actu", "", null, 50.62385958743109, 3.0476858782349154));
+        _SubjectList.add(new Subject("test", "Deux actus", "", null, 50.62448577819029, 3.084378497558646));
 
         FloatingActionButton floatingActionButton = findViewById(R.id.actionButtonFilter);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MapsActivity.class));
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                intent.putExtra("ListSubject", _SubjectList);
+                startActivity(intent);
             }
         });
 
