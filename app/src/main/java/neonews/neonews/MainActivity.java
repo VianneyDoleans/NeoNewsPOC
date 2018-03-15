@@ -8,6 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<SubjectMedia> mediaFirst = new ArrayList<>();
+        final List<SubjectMedia> mediaFirst = new ArrayList<>();
         mediaFirst.add(new SubjectMedia(
                 "https://upload.wikimedia.org/wikipedia/fr/thumb/3/33/Logo_20_Minutes.svg/938px-Logo_20_Minutes.svg.png",
                 "20 Minutes",
@@ -46,9 +49,23 @@ public class MainActivity extends AppCompatActivity {
                 "La voix du nord",
                 SubjectMedia.MediaType.NEWSPAPER,
                 "www.google.fr"));
-        _SubjectList.add(new Subject("http://i.imgur.com/DvpvklR.png", "Bonjour", "", mediaFirst, 50.62783439592958, 3.041548984008841));
-        _SubjectList.add(new Subject("test", "Une actu", "", null, 50.62385958743109, 3.0476858782349154));
-        _SubjectList.add(new Subject("test", "Deux actus", "", null, 50.62448577819029, 3.084378497558646));
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    _SubjectList = ApifyService.getCnewsMatin();
+                    _SubjectList.get(0).setListMedia(mediaFirst);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            bindSubject();
+                        }
+                    });
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
         FloatingActionButton floatingActionButton = findViewById(R.id.actionButtonFilter);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +76,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    private void bindSubject()
+    {
         final RecyclerView mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager( new LinearLayoutManager(this));
         mRecyclerView.setAdapter(new SubjectAdapter(_SubjectList, this));

@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/iv_pres"
-        android:layout_width="99dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,10 +19,10 @@
 
     <ImageView
         android:id="@+id/iv_picture_media"
-        android:layout_width="56dp"
-        android:layout_height="45dp"
+        android:layout_width="57dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,25 +30,28 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@+id/iv_picture_media"
-        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/iv_pres"
-        app:layout_constraintTop_toTopOf="@+id/iv_pres" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_description"
-        android:layout_width="224dp"
+        android:layout_width="352dp"
         android:layout_height="47dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_pres"
-        app:layout_constraintTop_toBottomOf="@+id/iv_picture_media" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 </android.support.constraint.ConstraintLayout>
