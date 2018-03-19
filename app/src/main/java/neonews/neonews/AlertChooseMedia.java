@@ -35,16 +35,18 @@ public class AlertChooseMedia extends Dialog implements Serializable {
 
         this.setTitle("Séléctionner le média de votre choix");
 
-        GridView gridView = findViewById(R.id.gridView);
-        GridViewMediaSubject gridAdapter = new GridViewMediaSubject(_Ctx, R.layout.gridview_media_subject, _Subject.getListMedia());
-        gridView.setAdapter(gridAdapter);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(_Ctx, WebviewSubjectActivity.class);
-                intent.putExtra("Subject", _Subject.getListMedia().get(i));
-                _Ctx.startActivity(intent);
-            }
-        });
+        if (_Subject.getListMedia() != null) {
+            GridView gridView = findViewById(R.id.gridView);
+            GridViewMediaSubject gridAdapter = new GridViewMediaSubject(_Ctx, R.layout.gridview_media_subject, _Subject.getListMedia());
+            gridView.setAdapter(gridAdapter);
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(_Ctx, WebviewSubjectActivity.class);
+                    intent.putExtra("Subject", _Subject.getListMedia().get(i));
+                    _Ctx.startActivity(intent);
+                }
+            });
+        }
     }
 }
