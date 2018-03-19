@@ -1,6 +1,7 @@
 package neonews.neonews;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,17 +12,27 @@ public class Subject implements Serializable {
     String imageUrl;
     String title;
     String description;
+    Date date;
     double x;
     double y;
     List<SubjectMedia> listMedia;
 
-    public Subject(String imageUrl, String title, String description, List<SubjectMedia> listMedia, double x, double y) {
+    public Subject(String imageUrl, String title, String description, List<SubjectMedia> listMedia, double x, double y, Date date) {
         this.imageUrl = imageUrl;
         this.title = title;
         this.description = description;
         this.listMedia = listMedia;
         this.x = x;
         this.y = y;
+        this.date = date;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public List<SubjectMedia> getListMedia() {

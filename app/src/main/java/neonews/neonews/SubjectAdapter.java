@@ -15,8 +15,11 @@ import com.synnapps.carouselview.ViewListener;
 
 import org.w3c.dom.Text;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.CarouselViewHolder> {
 
@@ -74,11 +77,14 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Carousel
                     ImageView mediaPicture = customView.findViewById(R.id.iv_picture_media);
                     TextView tv_title = customView.findViewById(R.id.tv_title);
                     TextView tv_description = customView.findViewById(R.id.tv_description);
+                    TextView tv_date = customView.findViewById(R.id.tv_date);
 
                     Picasso.get().load(subject.getImageUrl()).into(iv_pres);
                     mediaPicture.setImageResource(_MediaType.get(position));
                     tv_title.setText(subject.getTitle());
                     tv_description.setText(subject.getDescription());
+                    Format formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
+                    tv_date.setText(formatter.format(subject.getDate()));
                     customView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

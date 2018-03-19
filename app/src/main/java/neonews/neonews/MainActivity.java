@@ -12,6 +12,8 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     _SubjectList.addAll(ApifyService.getCnewsMatin());
                     _SubjectList.addAll(ApifyService.getLeMonde());
+                    sortAllSubject();
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -47,6 +50,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 intent.putExtra("ListSubject", _SubjectList);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void sortAllSubject()
+    {
+        Collections.sort(_SubjectList, new Comparator<Subject>() {
+            @Override
+            public int compare(Subject o2, Subject o1) {
+                return o1.getDate().compareTo(o2.getDate());
             }
         });
     }

@@ -6,6 +6,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -37,7 +39,7 @@ public class ApifyService {
                     SubjectMedia.MediaType.NEWSPAPER,
                     object.getString("link")));
 
-            Subject subject = new Subject(object.getString("image"), object.getString("category"), object.getString("title"), null, 50.633333, 3.066667);
+            Subject subject = new Subject(object.getString("image"), object.getString("category"), object.getString("title"), null, 50.633333, 3.066667, getDateTime(object.getString("hours")));
             subject.setListMedia(mediaFirst);
             listSubject.add(subject);
         }
@@ -64,10 +66,19 @@ public class ApifyService {
                     SubjectMedia.MediaType.NEWSPAPER,
                     object.getString("link")));
 
-            Subject subject = new Subject(object.getString("image"), object.getString("title"), "", null, 50.633333, 3.066667);
+            Subject subject = new Subject(object.getString("image"), object.getString("title"), "", null, 50.633333, 3.066667, getDateTime(object.getString("hours")));
             subject.setListMedia(mediaFirst);
             listSubject.add(subject);
         }
         return listSubject;
+    }
+
+    private static Date getDateTime(String time)
+    {
+        String times[] = time.split(":");
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(times[0].replaceAll("\n", "")));
+        calendar.set(Calendar.MINUTE, Integer.parseInt(times[1].replaceAll("\n", "")));
+        return calendar.getTime();
     }
 }
