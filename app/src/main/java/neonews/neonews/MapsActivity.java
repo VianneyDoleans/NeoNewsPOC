@@ -1,5 +1,6 @@
 package neonews.neonews;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -29,6 +31,8 @@ import java.util.ArrayList;
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    ArrayList<Subject> _list;
+    Context _Ctx = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void run() {
                 Intent i = getIntent();
-                ArrayList<Subject> list = (ArrayList<Subject>) i.getSerializableExtra("ListSubject");
+                _list = (ArrayList<Subject>) i.getSerializableExtra("ListSubject");
 
                 Paint color = new Paint();
                 color.setTextSize(35);
@@ -82,24 +86,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mMap.addMarker(new MarkerOptions().position(pos).title(sub.getTitle()).icon(BitmapDescriptorFactory.fromBitmap(finalMyBitmap)).anchor(0.5f, 1));
+                            mMap.addMarker(new MarkerOptions().position(pos)
+                                    .title(sub.getTitle())
+                                    .icon(BitmapDescriptorFactory.fromBitmap(finalMyBitmap))
+                                    .anchor(0.5f, 1)).showInfoWindow();
                         }
                     });
                 }
             }
         }).start();
 
-        LatLng lille = new LatLng(50.633333, 3.066667);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lille, 12.0f));
-    }
+        LatLng center = new LatLng(46.679603, 1.636908);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(center, 5.5f));
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
-        return true;
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                int position = 0;
+                for (Subject sub : _list) {
+                    if (sub.getTitle().equals(marker.getTitle()))
+                        break;
+                    position++;
+                }
+                Subject subject = _list.get(position);
+                AlertChooseMedia alert = new AlertChooseMedia(_Ctx, subject);
+                alert.show();
+                return true;
+            }
+        });
     }
 }
