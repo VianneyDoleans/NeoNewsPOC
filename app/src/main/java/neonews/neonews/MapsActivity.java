@@ -6,8 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,17 +16,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -67,7 +61,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 color.setColor(Color.WHITE);
 
                 for (final Subject sub : list) {
-                    final LatLng pos = new LatLng(sub.getX(), sub.getY());
+                    final LatLng pos = new LatLng(sub.getLat(), sub.getLng());
                     Bitmap myBitmap = null;
                     try {
                         URL url = new URL(sub.getImageUrl());
@@ -83,7 +77,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Bitmap bmp = Bitmap.createBitmap(80, 80, conf);
                     Canvas canvas1 = new Canvas(bmp);
                     canvas1.drawBitmap(myBitmap, 0,0, color);
-                    canvas1.drawText(sub.title , 30, 40, color);
+                    canvas1.drawText(sub.getTitle() , 30, 40, color);
                     final Bitmap finalMyBitmap = myBitmap;
                     runOnUiThread(new Runnable() {
                         @Override

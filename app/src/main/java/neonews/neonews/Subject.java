@@ -9,21 +9,20 @@ import java.util.List;
  */
 
 public class Subject implements Serializable {
-    String imageUrl;
-    String title;
-    String description;
-    Date date;
-    double x;
-    double y;
-    List<SubjectMedia> listMedia;
+    private String title;
+    private String description;
+    private Date date;
+    private String imageUrl;
+    private double lat;
+    private double lng;
+    private List<SubjectMedia> listMedia;
 
-    public Subject(String imageUrl, String title, String description, List<SubjectMedia> listMedia, double x, double y, Date date) {
+    public Subject(String imageUrl, String title, String description, double lat, double lng, Date date) {
         this.imageUrl = imageUrl;
         this.title = title;
         this.description = description;
-        this.listMedia = listMedia;
-        this.x = x;
-        this.y = y;
+        this.lat = lat;
+        this.lng = lng;
         this.date = date;
     }
 
@@ -67,15 +66,15 @@ public class Subject implements Serializable {
         this.description = description;
     }
 
-    public double getX() { return x; }
+    public double getLat() { return lat; }
 
-    public void setX(double x) {
-        this.x = x;
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
-    public double getY() { return y; }
+    public double getLng() { return lng; }
 
-    public void setY(double y) {
-        this.y = y;
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 }

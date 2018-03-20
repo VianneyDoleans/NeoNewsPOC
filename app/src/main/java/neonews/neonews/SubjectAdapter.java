@@ -1,6 +1,5 @@
 package neonews.neonews;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,8 +11,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ViewListener;
-
-import org.w3c.dom.Text;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -31,8 +28,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Carousel
         this._SubjectList = _SubjectList;
 
         _MediaType.add(R.drawable.newspaper);
-        _MediaType.add(R.drawable.radio);
         _MediaType.add(R.drawable.television);
+        _MediaType.add(R.drawable.radio);
 
         _Ctx = ctx;
     }
@@ -71,7 +68,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Carousel
             carouselView.setViewListener(new ViewListener() {
 
                 @Override
-                public View setViewForPosition(int position) {
+                public View setViewForPosition(final int position) {
                     View customView =  _Ctx.getLayoutInflater().inflate(R.layout.subject_item, null);
                     ImageView iv_pres = customView.findViewById(R.id.iv_pres);
                     ImageView mediaPicture = customView.findViewById(R.id.iv_picture_media);
@@ -88,7 +85,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Carousel
                     customView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            AlertChooseMedia alert = new AlertChooseMedia(_Ctx, subject);
+                            AlertChooseMedia alert = new AlertChooseMedia(_Ctx, subject, position);
                             alert.show();
                         }
                     });

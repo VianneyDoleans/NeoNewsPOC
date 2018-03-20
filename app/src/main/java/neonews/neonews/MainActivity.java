@@ -24,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Add in BDD
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    _SubjectList.addAll(ApifyService.getCnewsMatin());
-                    _SubjectList.addAll(ApifyService.getLeMonde());
+                    _SubjectList.addAll(NewsParser.getAllNewsFromFile(MainActivity.this));
                     sortAllSubject();
                     runOnUiThread(new Runnable() {
                         @Override

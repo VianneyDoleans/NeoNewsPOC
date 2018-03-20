@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Guillaume on 12/03/2018.
@@ -19,12 +21,14 @@ public class AlertChooseMedia extends Dialog implements Serializable {
 
     private Subject _Subject = null;
     private Context _Ctx = null;
+    private SubjectMedia.MediaType _MediaType = null;
 
-    public AlertChooseMedia(Context context, Subject subject) {
+    public AlertChooseMedia(Context context, Subject subject, int position) {
         super(context);
 
         _Subject = subject;
         _Ctx = context;
+        _MediaType = SubjectMedia.MediaType.values()[position];
     }
 
     @Override
@@ -35,9 +39,17 @@ public class AlertChooseMedia extends Dialog implements Serializable {
 
         this.setTitle("Séléctionner le média de votre choix");
 
+        //Bind list of media
+        List<SubjectMedia> listMedias = new ArrayList<>();
+        for (SubjectMedia mediaType : _Subject.getListMedia())
+        {
+            if (mediaType.getMediaTye() == _MediaType)
+                listMedias.add(mediaType);
+        }
+
         if (_Subject.getListMedia() != null) {
             GridView gridView = findViewById(R.id.gridView);
-            GridViewMediaSubject gridAdapter = new GridViewMediaSubject(_Ctx, R.layout.gridview_media_subject, _Subject.getListMedia());
+            GridViewMediaSubject gridAdapter = new GridViewMediaSubject(_Ctx, R.layout.gridview_media_subject, listMedias);
             gridView.setAdapter(gridAdapter);
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
