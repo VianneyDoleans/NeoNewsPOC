@@ -1,12 +1,12 @@
 package neonews.neonews;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONException;
 
@@ -42,16 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }).start();
-
-        FloatingActionButton floatingActionButton = findViewById(R.id.actionButtonFilter);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                intent.putExtra("ListSubject", _SubjectList);
-                startActivity(intent);
-            }
-        });
     }
 
     private void sortAllSubject()
