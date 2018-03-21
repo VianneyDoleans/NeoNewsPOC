@@ -76,6 +76,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         myBitmap = BitmapFactory.decodeStream(input);
                     } catch (IOException e) {
                         // Log exception
+                        return;
                     }
                     Bitmap.Config conf = Bitmap.Config.ARGB_8888;
                     Bitmap bmp = Bitmap.createBitmap(80, 80, conf);
