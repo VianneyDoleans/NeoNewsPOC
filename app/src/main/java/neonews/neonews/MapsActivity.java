@@ -64,7 +64,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 color.setTextSize(35);
                 color.setColor(Color.WHITE);
 
-                for (final Subject sub : list) {
+                for (final Subject sub : _list) {
                     final LatLng pos = new LatLng(sub.getLat(), sub.getLng());
                     Bitmap myBitmap = null;
                     try {
@@ -76,6 +76,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         myBitmap = BitmapFactory.decodeStream(input);
                     } catch (IOException e) {
                         // Log exception
+                        return;
                     }
                     Bitmap.Config conf = Bitmap.Config.ARGB_8888;
                     Bitmap bmp = Bitmap.createBitmap(80, 80, conf);
@@ -109,7 +110,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     position++;
                 }
                 Subject subject = _list.get(position);
-                AlertChooseMedia alert = new AlertChooseMedia(_Ctx, subject);
+                AlertChooseMedia alert = new AlertChooseMedia(_Ctx, subject, position);
                 alert.show();
                 return true;
             }
