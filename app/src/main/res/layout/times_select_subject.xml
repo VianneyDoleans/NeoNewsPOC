@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/subject_picker"
+        android:layout_width="0dp"
+        android:layout_height="111dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:np_dividerColor="@android:color/white"
+        app:np_height="180dp"
+        app:np_min="0"
+        app:np_selectedTextColor="@android:color/white"
+        app:np_selectedTextSize="20dp"
+        app:np_textColor="@android:color/white"
+        app:np_textSize="17dp"
+        app:np_value="0"
+        app:np_width="64dp" />
+
+</android.support.constraint.ConstraintLayout>

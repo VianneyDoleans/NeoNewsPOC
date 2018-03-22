@@ -10,18 +10,28 @@ public class SubjectMedia implements Serializable {
     public enum MediaType {
         NEWSPAPER,
         VIDEO,
-        RADIO;
+        RADIO
     }
-    String logoUrl;
-    String name;
-    MediaType mediaTye;
-    String url;
+    private String logoUrl;
+    private String name;
+    private MediaType mediaTye;
+    private String url;
+    private int times;
 
-    public SubjectMedia(String logoUrl, String name, MediaType mediaTye, String url) {
+    public SubjectMedia(String logoUrl, String name, MediaType mediaTye, String url, int times) {
         this.logoUrl = logoUrl;
         this.name = name;
         this.mediaTye = mediaTye;
         this.url = url;
+        this.times = times;
+    }
+
+    public int getTimes() {
+        return times;
+    }
+
+    public void setTimes(int times) {
+        this.times = times;
     }
 
     public String getLogoUrl() {

@@ -1,9 +1,12 @@
 package neonews.neonews;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TimePicker;
 
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -42,6 +45,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }).start();
+
+        floatingButtonMenu();
+    }
+
+    private void floatingButtonMenu()
+    {
+        FloatingActionButton floatingActionMap = findViewById(R.id.floating_button_map);
+        floatingActionMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                intent.putExtra("ListSubject", _SubjectList);
+                startActivity(intent);
+            }
+        });
+
+        FloatingActionButton floatingActionTime = findViewById(R.id.floating_button_time);
+        floatingActionTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TimesActivity.class);
+                intent.putExtra("ListSubject", _SubjectList);
+                startActivity(intent);
+            }
+        });
     }
 
     private void sortAllSubject()

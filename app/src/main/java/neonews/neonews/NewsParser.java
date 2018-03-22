@@ -31,8 +31,8 @@ public class NewsParser {
             List<SubjectMedia> subjectMediaList = new ArrayList<>();
             Subject subject = new Subject(
                     subjectObject.getString("image"),
-                    subjectObject.getString("description"),
                     subjectObject.getString("title"),
+                    subjectObject.getString("description"),
                     Double.parseDouble(subjectObject.getString("lat")),
                     Double.parseDouble(subjectObject.getString("lng")),
                     getDateTime(subjectObject.getString("hours")));
@@ -45,7 +45,8 @@ public class NewsParser {
                         mediaObject.getString("logo"),
                         mediaObject.getString("name"),
                         SubjectMedia.MediaType.valueOf(mediaObject.getString("type")),
-                        mediaObject.getString("link")
+                        mediaObject.getString("link"),
+                        mediaObject.getInt("time")
                 );
                 subjectMediaList.add(subjectMedia);
             }

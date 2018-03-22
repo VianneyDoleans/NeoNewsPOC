@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
-        android:id="@+id/right_labels"
+        android:id="@+id/floating_button_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -52,20 +52,22 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_colorNormal="@color/white"
+            app:fab_colorNormal="@android:color/black"
             app:fab_colorPressed="@color/white_pressed"
-            app:fab_icon="@android:drawable/ic_dialog_map"
-            app:fab_title="Label on the right" />
+            app:fab_title="Géolocaliasation des articles"
+            app:fab_icon="@android:drawable/ic_dialog_map" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_colorNormal="@color/white"
+            app:fab_colorNormal="@android:color/black"
             app:fab_colorPressed="@color/white_pressed"
-            app:fab_icon="@android:drawable/ic_lock_idle_alarm"
-            app:fab_title="Another one on the right" />
+            app:fab_title="Temps disponible"
+            app:fab_icon="@android:drawable/ic_lock_idle_alarm" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
