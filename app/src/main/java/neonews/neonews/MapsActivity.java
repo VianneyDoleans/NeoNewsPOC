@@ -78,12 +78,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         // Log exception
                         return;
                     }
-                    Bitmap.Config conf = Bitmap.Config.ARGB_8888;
-                    Bitmap bmp = Bitmap.createBitmap(80, 80, conf);
-                    Canvas canvas1 = new Canvas(bmp);
-                    canvas1.drawBitmap(myBitmap, 0,0, color);
-                    canvas1.drawText(sub.getTitle() , 30, 40, color);
-                    final Bitmap finalMyBitmap = myBitmap;
+                    final Bitmap finalMyBitmap = Bitmap.createScaledBitmap(myBitmap, 200, 120, true);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
