@@ -11,7 +11,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -78,14 +84,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         // Log exception
                         return;
                     }
-                    final Bitmap finalMyBitmap = Bitmap.createScaledBitmap(myBitmap, 200, 120, true);
+
+                    LayoutInflater inflater = (LayoutInflater) _Ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    LinearLayout tv = (LinearLayout) inflater.inflate(R.layout.image_map, null, false);
+
+                    TextView text = tv.findViewById(R.id.txt_marker);
+                    text.setText(sub.getTitle());
+
+                    ImageView image = tv.findViewById(R.id.img_marker);
+                    myBitmap = Bitmap.createScaledBitmap(myBitmap, 200, 120, true);
+                    image.setImageBitmap(myBitmap);
+
+                    tv.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                    tv.layout(0, 0, 200, 150);
+
+                    tv.setDrawingCacheEnabled(true);
+                    tv.buildDrawingCache();
+                    Bitmap bm = tv.getDrawingCache();
+
+                    final Bitmap finalMyBitmap = bm;// Bitmap.createScaledBitmap(bm, 200, 120, true);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             mMap.addMarker(new MarkerOptions().position(pos)
                                     .title(sub.getTitle())
                                     .icon(BitmapDescriptorFactory.fromBitmap(finalMyBitmap))
-                                    .anchor(0.5f, 1)).showInfoWindow();
+                                    .anchor(0.5f, 1));
                         }
                     });
                 }
