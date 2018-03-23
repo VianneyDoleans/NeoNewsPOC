@@ -40,7 +40,7 @@ public class AlertChooseMedia extends Dialog implements Serializable {
         this.setTitle("Séléctionner le média de votre choix");
 
         //Bind list of media
-        List<SubjectMedia> listMedias = new ArrayList<>();
+        final List<SubjectMedia> listMedias = new ArrayList<>();
         for (SubjectMedia mediaType : _Subject.getListMedia())
         {
             if (mediaType.getMediaTye() == _MediaType)
@@ -55,7 +55,7 @@ public class AlertChooseMedia extends Dialog implements Serializable {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Intent intent = new Intent(_Ctx, WebviewSubjectActivity.class);
-                    intent.putExtra("Subject", _Subject.getListMedia().get(i));
+                    intent.putExtra("Subject", listMedias.get(i));
                     _Ctx.startActivity(intent);
                 }
             });
