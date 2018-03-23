@@ -3,8 +3,8 @@
     "Articles": [
       {
         "hours": "17:09",
-        "title": "Cambridge Analytica: Mark Zuckerberg s'exprime enfin",
-        "description": "'Nous avons fait des erreurs', a notamment reconnu le patron de Facebook",
+        "title": "Cambridge Analytica",
+        "description": "Mark Zuckerberg s'exprime enfin",
         "lat": "37.362517",
         "lng": "-122.03476",
         "image": "http://img.bfmtv.com/c/1000/600/53e/a8a90a09c0b508ecf8a5fdea1143c.jpg",
@@ -62,11 +62,11 @@
       },
       {
         "hours": "17:09",
-        "title": "Grève du 22 mars : fonctionnaires et cheminots en marche contre Macron",
-        "description": "Sept syndicats de fonctionnaires et les quatre organisations représentatives de la SNCF ont appelé à manifester, jeudi.",
+        "title": "Grève du 22 mars",
+        "description": "Fonctionnaires et cheminots en marche contre Macron",
         "lat": "48.866667",
         "lng": "2.333333",
-        "image": "https://img.lemde.fr/2018/03/21/0/0/3600/2400/534/0/60/0/68fcf03_17015-97klvx.ed4aa.jpg",
+        "image": "http://img.over-blog-kiwi.com/1/00/54/64/20180312/ob_3fe956_manif-fonctionnaires-fo.jpg",
         "Medias": [
           {
             "link": "http://www.lemonde.fr/politique/article/2018/03/21/mobilisation-du-22-mars-fonctionnaires-et-cheminots-en-marche-contre-macron_5274156_823448.html",
@@ -78,7 +78,7 @@
           {
             "link": "http://bfmbusiness.bfmtv.com/emploi/sncf-la-cgt-annonce-une-greve-nationale-des-cheminots-le-22-mars-1374981.html",
             "type": "NEWSPAPER",
-            "logo": "http://static.bfmtv.com/ressources/img/logo/header/BFM-BUSINESS.svg",
+            "logo": "https://upload.wikimedia.org/wikipedia/fr/0/0d/BFM_Business_logo_2010.png",
             "name": "BFM Business",
             "time": "3"
           },
@@ -106,7 +106,7 @@
           {
             "link": "http://www.leparisien.fr/espace-premium/actu/le-plan-de-greve-des-cheminots-08-04-2016-5696003.php",
             "type": "NEWSPAPER",
-            "logo": "https://s1.lprs1.fr/assets/v2/img/svg/E-LOGO-LP-100x32.svg",
+            "logo": "https://is5-ssl.mzstatic.com/image/thumb/Purple62/v4/9a/be/9e/9abe9ea7-9f45-de7d-f609-2207f0a8e965/AppIcon-1x_U007emarketing-85-220-0-6.png/246x0w.jpg",
             "name": "Le Parisien",
             "time": "3"
           },
@@ -128,11 +128,11 @@
       },
       {
         "hours": "17:09",
-        "title": "Guerre commerciale : Washington prêt à exempter l’UE des taxes sur l’acier et l’aluminium",
-        "description": "Après deux jours d’intenses tractations avec l’administration américaine, la commissaire européenne au commerce, Cecilia Malmström, aurait décroché une exemption totale pour l’UE des taxes sur l’acier et l’aluminium.",
+        "title": "Guerre commerciale",
+        "description": "Washington prêt à exempter l’UE des taxes sur l’acier et l’aluminium",
         "lat": "48.866667",
         "lng": "2.333333",
-        "image": "https://img.lemde.fr/2018/03/21/0/0/3600/2400/534/0/60/0/68fcf03_17015-97klvx.ed4aa.jpg",
+        "image": "https://media.ouest-france.fr/v1/pictures/4a834cf72c0e709d86c1e4fae3f6d5f7-guerre-commerciale-pekin-et-washington-echangent-les-premieres-salves.jpg?width=940&height=531&fill=0&focuspoint=50%2C50&cropresize=1",
         "Medias": [
           {
             "link": "https://www.lemonde.fr/economie/article/2018/03/22/guerre-commerciale-washington-menage-l-europe_5274737_3234.html",
@@ -179,7 +179,7 @@
           {
             "link": "http://bfmbusiness.bfmtv.com/monde/taxes-americaines-sur-l-acier-la-grogne-monte-contre-washington-1386420.html",
             "type": "VIDEO",
-            "logo": "http://static.bfmtv.com/ressources/img/logo/header/BFM-BUSINESS.svg",
+            "logo": "https://upload.wikimedia.org/wikipedia/fr/0/0d/BFM_Business_logo_2010.png",
             "name": "BFM Business",
             "time": "1.12"
           },
@@ -209,10 +209,10 @@
       {
         "hours": "17:09",
         "title": "Commémorations du 22 mars à Zaventem",
-        "description": "Après deux jours d’intenses tractations avec l’administration américaine, la commissaire européenne au commerce, Cecilia Malmström, aurait décroché une exemption totale pour l’UE des taxes sur l’acier et l’aluminium.",
+        "description": "La commissaire européenne aurait décroché une exemption totale pour l’UE des taxes sur l’acier et l’aluminium.",
         "lat": "48.866667",
         "lng": "2.333333",
-        "image": "https://img.lemde.fr/2018/03/21/0/0/3600/2400/534/0/60/0/68fcf03_17015-97klvx.ed4aa.jpg",
+        "image": "https://o3.llb.be/image/thumb/58ce7d61cd70a15c9a3d5a55.jpg",
         "Medias": [
           {
             "link": "https://www.rtbf.be/info/societe/detail_commemorations-du-22-mars-des-proches-de-victimes-decus-par-la-ceremonie-a-zaventem?id=9873537",
@@ -231,7 +231,7 @@
           {
             "link": "http://www.sudinfo.be/archive/recup/1812048/article/2017-03-22/la-belgique-rend-hommage-aux-victimes-des-attentats-du-22-mars-2016-videos",
             "type": "VIDEO",
-            "logo": "http://www.sudinfo.be/sites/all/themes/sudpresse/engbootstrap_sudpresse/images/sudinfo-tri-color.svg",
+            "logo": "http://journal.sudinfo.be/medias/logo_sudinfo_fb.png",
             "name": "Sud Info",
             "time": "4"
           },
@@ -260,7 +260,7 @@
       },
       {
         "hours": "18:44",
-        "title": "voiture autonome",
+        "title": "Voiture autonome",
         "description": "Uber suspend son programme de voitures autonomes après une collision mortelle",
         "lat": "31.7360029",
         "lng": "-109.950535",
